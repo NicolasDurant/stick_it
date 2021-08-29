@@ -24,7 +24,6 @@ class StickIt extends StatefulWidget {
       this.stickerMinScale = 0.5,
       this.viewport = const Size(0.0, 0.0)})
       : super(key: key);
-
   final Widget child;
   final List<Image> stickerList;
   final double devicePixelRatio;
@@ -38,17 +37,16 @@ class StickIt extends StatefulWidget {
   final double stickerSize;
   final double panelHeight;
   late final Size viewport;
-  final _StickItState _flutterSimpleStickerViewState = _StickItState();
+  final _StickItState _stickItState = _StickItState();
 
   Future<Uint8List> exportImage() async {
-    await _flutterSimpleStickerViewState._prepareExport();
-    Future<Uint8List> exportImage = _flutterSimpleStickerViewState.exportImage();
-    print("export image success!");
+    await _stickItState._prepareExport();
+    Future<Uint8List> exportImage = _stickItState._exportImage();
     return exportImage;
   }
 
   @override
-  _StickItState createState() => _flutterSimpleStickerViewState;
+  _StickItState createState() => _stickItState;
 }
 
 class _StickItState extends State<StickIt> {
@@ -56,24 +54,6 @@ class _StickItState extends State<StickIt> {
 
   List<StickerImage> attachedList = [];
   final GlobalKey key = GlobalKey();
-
-  void attachSticker(Image image) {
-    setState(() {
-      attachedList.add(StickerImage(
-        image,
-        height: this.widget.stickerSize,
-        key: Key("sticker_${attachedList.length}"),
-        maxScale: this.widget.stickerMaxScale,
-        minScale: this.widget.stickerMinScale,
-        onTapRemove: (sticker) {
-          this.onTapRemoveSticker(sticker);
-        },
-        rotatable: this.widget.stickerRotatable,
-        viewport: this.widget.viewport,
-        width: this.widget.stickerSize,
-      ));
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +94,7 @@ class _StickItState extends State<StickIt> {
                             color: this.widget.panelStickerBackgroundColor,
                             child: TextButton(
                                 onPressed: () {
-                                  attachSticker(widget.stickerList[i]);
+                                  _attachSticker(widget.stickerList[i]);
                                 },
                                 child: widget.stickerList[i]),
                           ));
@@ -131,7 +111,25 @@ class _StickItState extends State<StickIt> {
     );
   }
 
-  Future<Uint8List> exportImage() async {
+  void _attachSticker(Image image) {
+    setState(() {
+      attachedList.add(StickerImage(
+        image,
+        height: this.widget.stickerSize,
+        key: Key("sticker_${attachedList.length}"),
+        maxScale: this.widget.stickerMaxScale,
+        minScale: this.widget.stickerMinScale,
+        onTapRemove: (sticker) {
+          this._onTapRemoveSticker(sticker);
+        },
+        rotatable: this.widget.stickerRotatable,
+        viewport: this.widget.viewport,
+        width: this.widget.stickerSize,
+      ));
+    });
+  }
+
+  Future<Uint8List> _exportImage() async {
     RenderRepaintBoundary boundary = key.currentContext!.findRenderObject() as RenderRepaintBoundary;
     var image = await boundary.toImage(pixelRatio: this.widget.devicePixelRatio);
     var byteData = await image.toByteData(format: ImageByteFormat.png);
@@ -139,7 +137,7 @@ class _StickItState extends State<StickIt> {
     return pngBytes;
   }
 
-  void onTapRemoveSticker(StickerImage sticker) {
+  void _onTapRemoveSticker(StickerImage sticker) {
     setState(() {
       this.attachedList.removeWhere((s) => s.key == sticker.key);
     });
