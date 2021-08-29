@@ -3,7 +3,7 @@
 All the snippets are from the [example project](https://github.com/NicolasDurant/stick_it/tree/main/lib/example).
 
 ## Simple Usage
-
+![Simplest Example](https://github.com/NicolasDurant/stick_it/tree/main/assets/simplest-example.png)
 ```dart
 import 'package:flutter/material.dart';
 import 'package:stick_it/stick_it.dart';

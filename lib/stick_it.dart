@@ -50,6 +50,9 @@ class StickIt extends StatefulWidget {
   /// Background color of the bottom panel.
   final Color panelBackgroundColor;
 
+  /// Height of the bottom panel.
+  final double panelHeight;
+
   /// Background color of the container stickers are placed within.
   final Color panelStickerBackgroundColor;
 
@@ -77,9 +80,6 @@ class StickIt extends StatefulWidget {
   /// So, to display them bigger when placing on the [child] you will have to set something like
   /// fit: Boxfit.cover on the image you are providing in the [stickerList].
   final double stickerSize;
-
-  /// Height of the bottom panel.
-  final double panelHeight;
 
   /// [Size] of the viewport that is provided.
   /// You don't have to set this manually, it will take the available space per default.
