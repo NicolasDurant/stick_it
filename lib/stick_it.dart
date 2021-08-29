@@ -1,5 +1,3 @@
-library stick_it;
-
 import 'dart:typed_data';
 import 'dart:ui';
 
@@ -7,6 +5,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:stick_it/src/sticker_image.dart';
 
+/// [StickIt] creates a [Stack] view, consisting of
+/// 1. the [child] provided as [Widget]
+/// 2. a [List] of [Image]s called [stickerList].
+///
+/// The default behavior will allow the [Image]s to be added, scaled, rotated and deleted.
+/// Sticker can be scaled within a customizable scale.
+///
+/// Calling the [exportImage] function will provide an [Uint8List],
+/// that can be used to preview or further save the image + sticker composition.
+///
+/// See also:
+///
+///  * <https://github.com/myriky/flutter_simple_sticker_view>, which is the original project.
 class StickIt extends StatefulWidget {
   StickIt(
       {Key? key,
@@ -24,21 +35,60 @@ class StickIt extends StatefulWidget {
       this.stickerMinScale = 0.5,
       this.viewport = const Size(0.0, 0.0)})
       : super(key: key);
+
+  /// Content you wish to place stickers upon.
   final Widget child;
+
+  /// List of sticker images that should be shown within the bottom panel.
+  /// Those can be placed on top of your child Widget.
   final List<Image> stickerList;
+
+  /// The devices pixel ratio.
+  /// See also: <https://stackoverflow.com/questions/8785643/what-exactly-is-device-pixel-ratio>
   final double devicePixelRatio;
+
+  /// Background color of the bottom panel.
   final Color panelBackgroundColor;
+
+  /// Background color of the container stickers are placed within.
   final Color panelStickerBackgroundColor;
+
+  /// Defines how many stickers are placed within one row of the grid.
   final int panelStickerCrossAxisCount;
+
+  /// Ratio of the cross-axis to the main-axis extent of each child.
   final double panelStickerAspectRatio;
+
+  /// Maximal scaling ratio for your stickers.
+  /// E.g 2 will allow the sticker to be twice as big!
   final double stickerMaxScale;
+
+  /// Minimal scaling ratio for your stickers.
+  /// E.g 0.5 will allow the sticker to be half as big at minimum!
   final double stickerMinScale;
+
+  /// Controls whether your stickers should be rotatable, while the scaling event is active.
+  /// Set to false, if you don't want rotation.
   final bool stickerRotatable;
+
+  /// Size of the [Rect] the stickers are on when placed within the [Stack].
+  ///
+  /// Setting this value up will only increase the [Rect] size.
+  /// So, to display them bigger when placing on the [child] you will have to set something like
+  /// fit: Boxfit.cover on the image you are providing in the [stickerList].
   final double stickerSize;
+
+  /// Height of the bottom panel.
   final double panelHeight;
+
+  /// [Size] of the viewport that is provided.
+  /// You don't have to set this manually, it will take the available space per default.
   final Size viewport;
+
   final _StickItState _stickItState = _StickItState();
 
+  /// Creates an [Uint8List] out of your composition, that you can use to save as [Image].
+  /// Before that it will clear all selections, so they don't appear on the new creation.
   Future<Uint8List> exportImage() async {
     await _stickItState._prepareExport();
     Future<Uint8List> exportImage = _stickItState._exportImage();

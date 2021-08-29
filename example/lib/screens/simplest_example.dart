@@ -14,28 +14,8 @@ class SimplestExample extends StatelessWidget {
       appBar: AppBar(
         title: Text(routeTitle),
       ),
-      body: StickIt(
-        /// The [StickIt] Class only requires two named parameters.
-        ///
-        /// [Widget] child - the child that the stickers should be placed upon.
-        /// [List<Image>] stickerList - the list of stickers available to the user.
-        ///
-        /// StickIt supports a lot of styling related optional named parameters,
-        /// that you can change and check out in the AdvancedExample.
-        child: Image.network(_background),
-        stickerList: [
-          Image.asset('assets/icons8-anubis-48.png'),
-          Image.asset('assets/icons8-bt21-shooky-48.png'),
-          Image.asset('assets/icons8-fire-48.png'),
-          Image.asset('assets/icons8-jake-48.png'),
-          Image.asset('assets/icons8-keiji-akaashi-48.png'),
-          Image.asset('assets/icons8-mate-48.png'),
-          Image.asset('assets/icons8-pagoda-48.png'),
-          Image.asset('assets/icons8-spring-48.png'),
-          Image.asset('assets/icons8-totoro-48.png'),
-          Image.asset('assets/icons8-year-of-dragon-48.png'),
-        ],
-      ),
+      body: StickIt(stickerList: [],
+      child: null,)
     );
   }
 }
