@@ -1,3 +1,7 @@
+## 1.0.0+1
+
+* Change example page.
+
 ## 1.0.0
 
 * Initial release.
