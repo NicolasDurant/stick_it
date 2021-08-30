@@ -1,14 +1,18 @@
 # Stick It
 
 Stick It is a fork of [flutter_simple_sticker_view](https://pub.dev/packages/flutter_simple_sticker_view). 
+
 Attach stickers on another image. Stickers can be moved, scaled and now also rotated. Export your created composition as image.
 This package supports null safety and comes with better documentation.
 
+![Simplest Example](https://github.com/NicolasDurant/stick_it/blob/main/example/assets/Simulator%20Screen%20Recording%20-%20iPhone%2012%20Pro%20Max%20-%202021-08-30%20at%2015.36.09.gif)
+![Advanced Example](https://github.com/NicolasDurant/stick_it/blob/main/example/assets/Simulator%20Screen%20Recording%20-%20iPhone%2012%20Pro%20Max%20-%202021-08-30%20at%2015.37.08.gif)
+
 ## Getting Started
 
-Add [flutter_simple_sticker_view](https://pub.dev/packages/stick_it) as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
+Add [stick_it](https://pub.dev/packages/stick_it) as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
 You can also check the [installing page](https://pub.dev/packages/stick_it/install).
-Check out the [example page](https://pub.dev/packages/stick_it/example) for an advanced example with image export, image save and custom settings.
+Check out the [example page](https://pub.dev/packages/stick_it/example) for an advanced example with background image picker, image export, image save and custom settings.
 
 ## Usage
 
@@ -66,7 +70,7 @@ class SimplestExample extends StatelessWidget {
 | named parameter             | type           | required | default                                           | description                                                                                                                                                                                                                                                                                        |
 |-----------------------------|----------------|----------|---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | child                       | Widget         | yes      |                                                   | Content you wish to place stickers upon                                                                                                                                                                                                                                                            |
-| stickerList                 | List < Image > | yes      |                                                   | List of sticker images that should be shown within the bottom panel. Those can be placed on top of your child Widget.                                                                                                                                                                              |
+| stickerList                 | List <Image>   | yes      |                                                   | List of sticker images that should be shown within the bottom panel. Those can be placed on top of your child Widget.                                                                                                                                                                              |
 | devicePixelRatio            | double         | no       | 3.0                                               | The devices pixel ratio. See also: <https://stackoverflow.com/questions/8785643/what-exactly-is-device-pixel-ratio>                                                                                                                                                                                |
 | panelBackgroundColor        | Color          | no       | Colors.black                                      | Background color of the bottom panel.                                                                                                                                                                                                                                                              |
 | panelHeight                 | double         | no       | 200.0                                             | Height of the bottom panel.                                                                                                                                                                                                                                                                        |
