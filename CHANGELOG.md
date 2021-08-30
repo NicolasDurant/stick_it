@@ -1,3 +1,7 @@
-## 0.0.1
+## 1.0.0
 
-* TODO: Describe initial release.
+* Initial release.
+* Add null safety.
+* Add rotation parameter that controls if stickers can be rotated with a gesture.
+* Add documentation.
+* Add examples.

@@ -1,6 +1,6 @@
 # Cookbook
 
-All the snippets are from the [example project](https://github.com/NicolasDurant/stick_it/tree/main/lib/example).
+All the snippets are from the [example project](https://github.com/NicolasDurant/stick_it/tree/main/example).
 
 ## Simple Usage
 ### Preview
@@ -53,6 +53,7 @@ class SimplestExample extends StatelessWidget {
 ## Advanced Usage
 ### Preview
 The advanced example allows your users to select a background from either their gallery or camera, and save the created image to their gallery in a custom album.
+
 ![Advanced Example](https://github.com/NicolasDurant/stick_it/blob/main/example/assets/Simulator%20Screen%20Recording%20-%20iPhone%2012%20Pro%20Max%20-%202021-08-30%20at%2015.37.08.gif)
 ### Installation
 We depend on some external packages here that help handling the images and their save locations:
