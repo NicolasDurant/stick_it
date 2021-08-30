@@ -1,6 +1,6 @@
 name: stick_it
 description: A Null safety fork of flutter_simple_sticker_view. Added documentation and optional rotation for the stickers.
-version: 1.0.0+1
+version: 1.0.0+2
 homepage: https://github.com/NicolasDurant/stick_it
 
 environment:

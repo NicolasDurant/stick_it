@@ -1,3 +1,7 @@
+## 1.0.0+2
+
+* Fix License display.
+
 ## 1.0.0+1
 
 * Change example page.
