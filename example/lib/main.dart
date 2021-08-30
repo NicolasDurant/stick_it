@@ -1,5 +1,5 @@
 import 'package:example/routes.dart';
-import 'package:example/screens/simplest_example.dart';
+import 'package:example/screens/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.pink,
       ),
-      initialRoute: SimplestExample.routeName,
+      initialRoute: Home.routeName,
       routes: routes,
     );
   }

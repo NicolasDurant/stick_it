@@ -8,7 +8,7 @@ This package supports null safety and comes with better documentation.
 
 Add [flutter_simple_sticker_view](https://pub.dev/packages/stick_it) as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
 You can also check the [installing page](https://pub.dev/packages/stick_it/install).
-Check out the [example page](https://pub.dev/packages/stick_it/example) for an advanced example with image export and custom settings.
+Check out the [example page](https://pub.dev/packages/stick_it/example) for an advanced example with image export, image save and custom settings.
 
 ## Usage
 
